@@ -1,0 +1,37 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: service-consumer
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  cloud:
+    compatibility-verifier:
+      enabled: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  info: # 显示任意的应用信息，默认关闭  springBoot版本：2.7.5 CURRENT  GA如果是更低一些的版本默认是开启的
+    env:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /actuator  #配置端点访问前缀
+      exposure:
+        include: info,health  #只暴露info,health两个端点; “*” 表示暴露所有端点
+        exclude: health  #可以将以暴露的端点排除（不暴露）
+info:
+  app:
+    name: "@project.name@"
+    encoding: "@project.build.sourceEncoding@"
+    java:
+      source: "@java.version@"
+      target: "@java.version@"
+logging:
+  level:
+    org.springframework.boot.actuate.info: DEBUG
