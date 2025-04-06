@@ -1,4 +1,4 @@
-package charles.zhou.serviceconsumer;
+package charles.zhou.serviceconsumer.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +13,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-//@EnableWebMvc // 添加此注解
 public class SwaggerConfig {
 
     @Bean
